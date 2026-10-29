@@ -1,0 +1,27 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+config/db.local.php
+*.pem
+*.key
+
+# Local tooling
+.agents/
+.codex/
+skills-lock.json
+
+# Dependencies and generated files
+node_modules/
+vendor/
+*.log
+*.zip
+tests/chrome-*/
+tests/responsive-artifacts/
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
