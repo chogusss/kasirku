@@ -73,32 +73,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Masuk — KasirKu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:            oklch(0.13 0.012 220);
-      --surface:       oklch(0.17 0.012 220);
-      --surface-2:     oklch(0.21 0.010 220);
-      --surface-3:     oklch(0.25 0.008 220);
-      --ink:           oklch(0.94 0.005 220);
-      --ink-2:         oklch(0.76 0.008 220);
-      --ink-3:         oklch(0.55 0.008 220);
-      --primary:       oklch(0.62 0.14 160);
-      --primary-dim:   oklch(0.48 0.12 160);
-      --primary-surface: oklch(0.20 0.04 160);
-      --primary-border:  oklch(0.35 0.08 160);
-      --danger:        oklch(0.60 0.19 20);
-      --danger-surface:oklch(0.18 0.05 20);
-      --border:        oklch(0.28 0.006 220);
-      --border-strong: oklch(0.35 0.010 220);
+      --bg:            oklch(0.965 0.009 310);
+      --surface:       oklch(1 0 0);
+      --surface-2:     oklch(0.97 0.012 305);
+      --surface-3:     oklch(0.94 0.022 305);
+      --ink:           oklch(0.26 0.022 310);
+      --ink-2:         oklch(0.43 0.027 310);
+      --ink-3:         oklch(0.52 0.025 310);
+      --primary:       oklch(0.27 0.017 310);
+      --primary-dim:   oklch(0.21 0.015 310);
+      --primary-surface: oklch(0.91 0.034 305);
+      --primary-border:  oklch(0.82 0.052 302);
+      --danger:        oklch(0.51 0.16 20);
+      --danger-surface:oklch(0.92 0.028 350);
+      --border:        oklch(0.90 0.014 310);
+      --border-strong: oklch(0.82 0.026 310);
       --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     html, body {
       height: 100%;
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
       background: var(--bg);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
@@ -113,14 +113,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       position: relative;
     }
 
-    /* Two-panel ambient glow — restrained, not decorative */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background:
-        radial-gradient(ellipse 50% 40% at 15% 15%, oklch(0.35 0.07 160 / 0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 30% at 85% 85%, oklch(0.28 0.05 220 / 0.08) 0%, transparent 60%);
+      background: none;
       pointer-events: none;
     }
 
@@ -205,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       gap: 9px;
       padding: 11px 14px;
       background: var(--danger-surface);
-      border: 1px solid oklch(0.32 0.10 20);
+      border: 1px solid oklch(0.80 0.06 20);
       border-radius: 8px;
       margin-bottom: 18px;
       font-size: 13px;
@@ -249,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     .form-control:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px oklch(0.62 0.14 160 / 0.15);
+      box-shadow: 0 0 0 3px oklch(0.84 0.055 302 / 0.34);
     }
 
     /* Placeholder at 4.5:1+ — use ink-2 not ink-3 */
@@ -266,7 +263,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       width: 100%;
       padding: 11px;
       background: var(--primary);
-      color: oklch(0.10 0 0);
+      color: oklch(1 0 0);
       border: none;
       border-radius: 8px;
       font-size: 14px;
@@ -282,7 +279,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .btn-login:hover:not(:disabled) {
       background: var(--primary-dim);
       color: var(--ink);
-      box-shadow: 0 4px 16px oklch(0.62 0.14 160 / 0.28);
+      box-shadow: 0 4px 8px oklch(0.27 0.017 310 / 0.18);
     }
 
     .btn-login:disabled {
@@ -334,19 +331,129 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       font-size: 11px;
       color: var(--ink-3);
     }
+
+    /* Soft Lavender Workspace */
+    :root {
+      --bg: oklch(0.965 0.009 310);
+      --surface: oklch(1 0 0);
+      --surface-2: oklch(0.97 0.012 305);
+      --surface-3: oklch(0.94 0.022 305);
+      --ink: oklch(0.26 0.022 310);
+      --ink-2: oklch(0.43 0.027 310);
+      --ink-3: oklch(0.52 0.025 310);
+      --primary: oklch(0.27 0.017 310);
+      --primary-dim: oklch(0.21 0.015 310);
+      --primary-surface: oklch(0.91 0.034 305);
+      --primary-border: oklch(0.82 0.052 302);
+      --danger: oklch(0.51 0.16 20);
+      --danger-surface: oklch(0.92 0.028 350);
+      --border: oklch(0.90 0.014 310);
+      --border-strong: oklch(0.82 0.026 310);
+    }
+
+    html, body { min-height: 100%; height: auto; font-family: 'DM Sans', system-ui, sans-serif; }
+    body { display: grid; place-items: center; padding: 24px; background: var(--bg); }
+    body::before { content: none; }
+    .login-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      width: min(100%, 1020px);
+      min-height: 620px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: 0 8px 24px oklch(0.25 0.02 310 / 0.10);
+    }
+
+    .login-showcase {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+      padding: 42px;
+      overflow: hidden;
+      background: var(--primary-surface);
+      border-right: 1px solid var(--primary-border);
+    }
+    .brand { position: relative; z-index: 2; margin-bottom: 0; }
+    .brand-mark { background: var(--primary); color: oklch(1 0 0); border-radius: 12px; font: 800 18px/1 'Manrope', sans-serif; }
+    .brand-name { font-family: 'Manrope', sans-serif; }
+    .brand-tagline { color: var(--ink-2); }
+    .showcase-copy { position: relative; z-index: 2; max-width: 440px; margin-block: auto; padding-block: 50px; }
+    .showcase-overline { margin-bottom: 12px; color: var(--ink-2); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .showcase-copy h1 { margin: 0 0 14px; color: var(--ink); font: 800 34px/1.18 'Manrope', sans-serif; letter-spacing: -0.04em; text-wrap: balance; }
+    .showcase-copy p { max-width: 48ch; color: var(--ink-2); font-size: 14px; line-height: 1.7; }
+    .showcase-points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .showcase-points span { padding: 6px 10px; border: 1px solid var(--primary-border); border-radius: 999px; background: oklch(1 0 0 / 0.55); color: var(--ink-2); font-size: 11px; font-weight: 700; }
+    .showcase-art { position: absolute; right: -28px; bottom: -36px; width: 230px; height: 190px; pointer-events: none; }
+    .showcase-art span { position: absolute; display: block; border: 1px solid var(--primary-border); box-shadow: 0 7px 8px oklch(0.40 0.05 302 / 0.10); }
+    .art-one { width: 132px; height: 132px; right: 12px; bottom: 18px; border-radius: 50%; background: var(--surface); }
+    .art-two { width: 138px; height: 88px; right: 86px; bottom: 10px; border-radius: 48% 52% 44% 50%; background: oklch(0.84 0.055 302); transform: rotate(-12deg); }
+    .art-three { width: 72px; height: 72px; right: 64px; bottom: 54px; border-radius: 16px; background: var(--primary); transform: rotate(9deg); }
+
+    .login-panel { display: flex; flex-direction: column; justify-content: center; width: 100%; max-width: none; padding: 42px; }
+    .login-card { padding: 0; border: 0; background: transparent; }
+    .login-heading { font: 800 24px/1.25 'Manrope', sans-serif; }
+    .login-sub { color: var(--ink-2); margin-bottom: 26px; }
+    .form-label { color: var(--ink-2); }
+    .form-control { min-height: 46px; background: var(--surface); border-color: var(--border-strong); border-radius: 10px; color: var(--ink); }
+    .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 3px oklch(0.84 0.055 302 / 0.34); }
+    .btn-login { min-height: 46px; border-radius: 10px; background: var(--primary); color: oklch(1 0 0); }
+    .btn-login:hover:not(:disabled) { background: var(--primary-dim); color: oklch(1 0 0); box-shadow: 0 4px 8px oklch(0.27 0.017 310 / 0.18); }
+    .demo-box { background: var(--surface-2); border-color: var(--border); border-radius: 12px; }
+    .demo-row code { background: var(--primary-surface); color: var(--ink-2); }
+    .error-alert { border-color: oklch(0.80 0.06 20); }
+
+    @media (max-width: 820px) {
+      body { padding: 14px; }
+      .login-shell { grid-template-columns: 1fr; min-height: auto; }
+      .login-showcase { min-height: 220px; padding: 28px; border-right: 0; border-bottom: 1px solid var(--primary-border); }
+      .showcase-copy { padding: 34px 0 10px; }
+      .showcase-copy h1 { max-width: 18ch; font-size: 27px; }
+      .showcase-copy p, .showcase-points { display: none; }
+      .showcase-art { transform: scale(0.76); transform-origin: right bottom; }
+      .login-panel { padding: 30px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      body { display: block; padding: 0; background: var(--surface); }
+      .login-shell { min-height: 100dvh; border: 0; border-radius: 0; box-shadow: none; }
+      .login-showcase { min-height: 196px; padding: 24px 20px; }
+      .brand-tagline { display: none; }
+      .showcase-copy { padding-top: 26px; }
+      .showcase-copy h1 { font-size: 23px; }
+      .showcase-art { opacity: 0.7; transform: scale(0.62); }
+      .login-panel { padding: 28px 20px 34px; }
+    }
   </style>
 </head>
 <body>
-  <div class="login-panel">
-
-    <!-- Brand -->
+  <main class="login-shell">
+    <section class="login-showcase" aria-label="Tentang KasirKu">
     <div class="brand">
-      <div class="brand-mark">🧾</div>
+      <div class="brand-mark">K</div>
       <div class="brand-text">
         <div class="brand-name"><?= appEscape(APP_NAME) ?></div>
         <div class="brand-tagline">Kasir &amp; Manajemen Toko untuk UMKM</div>
       </div>
     </div>
+
+      <div class="showcase-copy">
+        <div class="showcase-overline">Ruang kerja toko Anda</div>
+        <h1>Kasir lebih cepat, bisnis lebih terarah.</h1>
+        <p>Kelola transaksi, stok, dan laporan harian dalam antarmuka yang sederhana dan nyaman dipakai.</p>
+        <div class="showcase-points" aria-hidden="true">
+          <span>Transaksi cepat</span>
+          <span>Stok terpantau</span>
+          <span>Laporan rapi</span>
+        </div>
+      </div>
+      <div class="showcase-art" aria-hidden="true"><span class="art-one"></span><span class="art-two"></span><span class="art-three"></span></div>
+    </section>
+
+    <div class="login-panel">
 
     <!-- Card -->
     <div class="login-card">
@@ -430,7 +537,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       &copy; <?= date('Y') ?> <?= appEscape(APP_NAME) ?> &mdash; <?= appEscape(STORE_NAME) ?>
     </div>
 
-  </div>
+    </div>
+  </main>
 
   <script>
     document.getElementById('loginForm').addEventListener('submit', function() {

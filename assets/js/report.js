@@ -150,8 +150,8 @@ function renderMonthlyChart(data, year) {
           {
             label: 'Pendapatan',
             data: revenues,
-            backgroundColor: data.map((_, index) => index === currentMonth && isCurrentYear ? 'rgba(34, 197, 137, 0.75)' : 'rgba(34, 197, 137, 0.35)'),
-            borderColor: 'rgba(34, 197, 137, 1)',
+            backgroundColor: data.map((_, index) => index === currentMonth && isCurrentYear ? 'rgba(151, 125, 183, 0.78)' : 'rgba(216, 201, 237, 0.72)'),
+            borderColor: 'rgba(117, 91, 148, 0.9)',
             borderWidth: 1,
             borderRadius: 5,
             borderSkipped: false
@@ -160,10 +160,10 @@ function renderMonthlyChart(data, year) {
             label: 'Transaksi',
             data: data.map(month => Number.parseInt(month.total_transactions, 10) || 0),
             type: 'line',
-            borderColor: 'rgba(139, 92, 246, 1)',
-            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+            borderColor: 'rgba(41, 38, 46, 0.9)',
+            backgroundColor: 'rgba(41, 38, 46, 0.08)',
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(139, 92, 246, 1)',
+            pointBackgroundColor: 'rgba(41, 38, 46, 1)',
             pointRadius: 3,
             tension: 0.25,
             yAxisID: 'y2'
@@ -176,7 +176,7 @@ function renderMonthlyChart(data, year) {
         plugins: {
           legend: {
             display: !compactChart,
-            labels: { color: '#94A3B8', font: { size: 12 } }
+            labels: { color: '#756D7F', font: { size: 12 } }
           },
           tooltip: {
             callbacks: {
@@ -190,9 +190,9 @@ function renderMonthlyChart(data, year) {
         },
         scales: {
           x: {
-            grid: { color: 'rgba(148,163,184,0.07)' },
+            grid: { color: 'rgba(117,109,127,0.12)' },
             ticks: {
-              color: '#94A3B8',
+              color: '#756D7F',
               font: { size: compactChart ? 10 : 11 },
               autoSkip: true,
               maxTicksLimit: compactChart ? 6 : 12
@@ -200,9 +200,9 @@ function renderMonthlyChart(data, year) {
           },
           y: {
             beginAtZero: true,
-            grid: { color: 'rgba(148,163,184,0.07)' },
+            grid: { color: 'rgba(117,109,127,0.12)' },
             ticks: {
-              color: '#94A3B8',
+              color: '#756D7F',
               font: { size: 11 },
               callback(value) {
                 if (value >= 1000000) return `Rp ${(value / 1000000).toLocaleString('id-ID', { maximumFractionDigits: 1 })} jt`;
@@ -216,7 +216,7 @@ function renderMonthlyChart(data, year) {
             beginAtZero: true,
             position: 'right',
             grid: { display: false },
-            ticks: { color: '#A78BFA', precision: 0, font: { size: 11 } }
+            ticks: { color: '#756D7F', precision: 0, font: { size: 11 } }
           }
         }
       }

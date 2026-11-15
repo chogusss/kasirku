@@ -11,6 +11,23 @@ $pageSubtitle = 'Ringkasan Bisnis Anda';
 require_once __DIR__ . '/../includes/header.php';
 ?>
 
+<section class="dashboard-welcome" aria-labelledby="welcomeTitle">
+  <div class="welcome-copy">
+    <div class="welcome-eyebrow"><?= appEscape(appIndonesianDate()) ?></div>
+    <h2 id="welcomeTitle">Selamat datang kembali, <?= appEscape($userName) ?></h2>
+    <p>Pantau penjualan, stok, dan aktivitas toko dari satu ruang kerja yang lebih tenang.</p>
+    <div class="welcome-actions">
+      <a class="btn btn-primary" href="<?= appEscape(appUrl('pages/pos.php')) ?>">Buka Kasir</a>
+      <a class="btn btn-secondary" href="<?= appEscape(appUrl('pages/stock.php')) ?>">Kelola Produk</a>
+    </div>
+  </div>
+  <div class="welcome-art" aria-hidden="true">
+    <span class="welcome-shape shape-back"></span>
+    <span class="welcome-shape shape-middle"></span>
+    <span class="welcome-shape shape-front"><?= appIcon('report') ?></span>
+  </div>
+</section>
+
 <!-- ===== STATS ===== -->
 <div class="stats-grid" id="statsGrid">
 
@@ -20,7 +37,7 @@ require_once __DIR__ . '/../includes/header.php';
         <div class="stat-label">Pendapatan Hari Ini</div>
         <div class="stat-value" id="todayRevenue">—</div>
       </div>
-      <div class="stat-icon-box">💰</div>
+      <div class="stat-icon-box"><?= appIcon('revenue') ?></div>
     </div>
   </div>
 
@@ -30,7 +47,7 @@ require_once __DIR__ . '/../includes/header.php';
         <div class="stat-label">Transaksi Hari Ini</div>
         <div class="stat-value" id="todayTxn">—</div>
       </div>
-      <div class="stat-icon-box">🧾</div>
+      <div class="stat-icon-box"><?= appIcon('history') ?></div>
     </div>
   </div>
 
@@ -40,7 +57,7 @@ require_once __DIR__ . '/../includes/header.php';
         <div class="stat-label">Total Produk</div>
         <div class="stat-value" id="totalProducts">—</div>
       </div>
-      <div class="stat-icon-box">📦</div>
+      <div class="stat-icon-box"><?= appIcon('stock') ?></div>
     </div>
   </div>
 
@@ -50,7 +67,7 @@ require_once __DIR__ . '/../includes/header.php';
         <div class="stat-label">Stok Hampir Habis</div>
         <div class="stat-value" id="lowStockCount">—</div>
       </div>
-      <div class="stat-icon-box">⚠️</div>
+      <div class="stat-icon-box"><?= appIcon('alert') ?></div>
     </div>
   </div>
 
@@ -260,10 +277,10 @@ async function loadDashboard() {
 
     const ctx = document.getElementById('revenueChart').getContext('2d');
 
-    // Gradient fill using OKLCH primary teal
+    // Soft lavender fill aligned with the workspace theme.
     const grad = ctx.createLinearGradient(0, 0, 0, 220);
-    grad.addColorStop(0,   'oklch(0.62 0.14 160 / 0.30)');
-    grad.addColorStop(1,   'oklch(0.62 0.14 160 / 0.02)');
+    grad.addColorStop(0,   'oklch(0.78 0.065 302 / 0.72)');
+    grad.addColorStop(1,   'oklch(0.88 0.038 305 / 0.38)');
 
     revenueChart = new window.Chart(ctx, {
       type: 'bar',
@@ -273,7 +290,7 @@ async function loadDashboard() {
           label: 'Pendapatan',
           data: revenues,
           backgroundColor: grad,
-          borderColor: 'oklch(0.62 0.14 160)',
+          borderColor: 'oklch(0.58 0.075 302)',
           borderWidth: 1.5,
           borderRadius: 5,
           borderSkipped: false,
@@ -285,11 +302,11 @@ async function loadDashboard() {
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: 'oklch(0.17 0.012 220)',
-            borderColor:     'oklch(0.35 0.010 220)',
+            backgroundColor: 'oklch(0.27 0.017 310)',
+            borderColor:     'oklch(0.42 0.025 310)',
             borderWidth: 1,
             titleColor: 'oklch(0.94 0.005 220)',
-            bodyColor:  'oklch(0.76 0.008 220)',
+            bodyColor:  'oklch(0.90 0.015 305)',
             padding: 10,
             callbacks: {
               label: ctx => formatRupiah(ctx.raw)
@@ -298,14 +315,14 @@ async function loadDashboard() {
         },
         scales: {
           x: {
-            grid: { color: 'oklch(0.25 0.008 220 / 0.6)', drawBorder: false },
-            ticks: { color: 'oklch(0.75 0.008 220)', font: { size: 12 } },
+            grid: { color: 'oklch(0.90 0.014 310)', drawBorder: false },
+            ticks: { color: 'oklch(0.50 0.025 310)', font: { size: 12 } },
             border: { display: false }
           },
           y: {
-            grid: { color: 'oklch(0.25 0.008 220 / 0.6)', drawBorder: false },
+            grid: { color: 'oklch(0.90 0.014 310)', drawBorder: false },
             ticks: {
-              color: 'oklch(0.75 0.008 220)',
+              color: 'oklch(0.50 0.025 310)',
               font: { size: 11 },
               callback: val => 'Rp\u00a0' + (val >= 1000 ? (val/1000).toLocaleString('id-ID') + 'k' : val)
             },
@@ -336,7 +353,7 @@ async function loadDashboard() {
       lowEl.innerHTML = lowStockList.map(p => {
         const stock = Number.parseInt(p.stock, 10) || 0;
         const cls = stock <= 5 ? 'badge-danger' : 'badge-warning';
-        return `<div style="display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:1px solid oklch(0.20 0.005 220 / 0.6)">
+        return `<div style="display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:1px solid var(--border)">
           <span style="font-size:13px;font-weight:500;color:var(--ink)">${escapeDashboardHtml(p.name || 'Tanpa nama')}</span>
           <span class="badge ${cls}">${stock} ${escapeDashboardHtml(p.unit || 'pcs')}</span>
         </div>`;

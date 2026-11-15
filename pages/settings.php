@@ -19,7 +19,7 @@ require_once __DIR__ . '/../includes/header.php';
     </div>
     <div class="card-body">
       <div style="display:flex;align-items:center;gap:16px">
-        <div style="width:60px;height:60px;border-radius:50%;background:var(--primary);color:oklch(0.10 0 0);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700" aria-hidden="true">
+        <div style="width:60px;height:60px;border-radius:50%;background:var(--primary-surface);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700" aria-hidden="true">
           <?= appEscape($userInitial) ?>
         </div>
         <div>

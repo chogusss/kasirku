@@ -96,7 +96,7 @@ require_once __DIR__ . '/../includes/header.php';
     width: 100%;
     padding: 13px;
     background: var(--success);
-    color: oklch(0.10 0 0);
+    color: oklch(1 0 0);
     border: none;
     border-radius: 8px;
     font-size: 15px;
@@ -109,9 +109,9 @@ require_once __DIR__ . '/../includes/header.php';
     letter-spacing: -0.01em;
   }
   .btn-process:hover:not(:disabled) {
-    background: oklch(0.56 0.14 145);
-    color: var(--ink);
-    box-shadow: 0 4px 18px oklch(0.64 0.15 145 / 0.30);
+    background: oklch(0.40 0.09 145);
+    color: oklch(1 0 0);
+    box-shadow: 0 4px 8px oklch(0.46 0.095 145 / 0.20);
   }
   .btn-process:disabled {
     opacity: 0.35;
@@ -121,7 +121,7 @@ require_once __DIR__ . '/../includes/header.php';
   /* Badge on cart header */
   .cart-badge {
     background: var(--primary);
-    color: oklch(0.10 0 0);
+    color: oklch(1 0 0);
     font-size: 10px;
     font-weight: 800;
     padding: 2px 8px;
